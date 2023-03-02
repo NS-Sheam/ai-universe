@@ -1,15 +1,16 @@
 // Fetching all data 
-const loadData = async() =>{
+const loadData = async(dataLimit) =>{
     const url = 'https://openapi.programming-hero.com/api/ai/tools';
     const res = await fetch(url);
     const data = await res.json();
-    displayData(data.data.tools);
+    displayData(data.data.tools, dataLimit);
 };
 
 // Displaying All data by card 
-const displayData = allData =>{
+const displayData = (allData, dataLimit) =>{
     const cardContainer = document.getElementById('card-container');
-    allData = allData.slice(0, 6);
+    allData = allData.slice(0, dataLimit);
+    cardContainer.innerHTML ='';
     allData.forEach(data => {
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('card', 'w-96', 'bg-base-100', 'shadow-xl', 'mx-auto', 'mb-5' , 'border-1');
@@ -43,4 +44,11 @@ const displayData = allData =>{
         // // });
     });
 };
-loadData();
+loadData(6);
+// See more button 
+const seeMoreButton = document.getElementById('see-more-btn');
+seeMoreButton.addEventListener('click', function(){
+    loadData();
+    seeMoreButton.style.display = 'none';
+})
+
