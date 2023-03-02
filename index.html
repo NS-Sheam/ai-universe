@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- tailwind and daisiui link  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>AI Universe</title>
 </head>
+
 <body>
-    
+    <header class="m-8 container text-center">
+        <h1 class="text-3xl font-bold mb-4">AI Universre Hub</h1>
+        <button class="p-4 bg-[#EB5757] font-bold text-[#ffffff] rounded-xl">Sort By Date</button>
+    </header>
+    <section>
+        <div class="grid grid-cols-1 md:grid-cols-3">
+            <div class="card w-96 bg-base-100 shadow-xl">
+                <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                <div class="card-body">
+                  <h2 class="card-title">Features</h2>
+                  <p>If a dog chews shoes whose shoes does he choose?</p>
+                  <div class="card-actions justify-end">
+                    <button class="btn btn-primary">Buy Now</button>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </section>
+
+    <!-- Javascript connecting with HTML  -->
+    <script src="js/main.js"></script>
 </body>
+
 </html>
