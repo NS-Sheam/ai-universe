@@ -38,24 +38,26 @@
             <button class="p-4 bg-[#EB5757] font-bold text-[#ffffff] rounded-xl">See less</button>
         </div>
     </section>
-    <!-- The button to open modal -->
-    <label for="my-modal-5" class="btn">open modal</label>
+    
+
 
     <input type="checkbox" id="my-modal-5" class="modal-toggle" />
     <div class="modal">
-        <div class="modal-box w-11/12 max-w-5xl">
-            <label for="my-modal-5" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <div class="modal-box w-11/12 max-w-5xl relative">
+            <!-- The button to close modal -->
+            <label for="my-modal-5"
+                class="btn btn-sm btn-circle bg-[#EB5757] absolute border-0 right-2 top-2 z-50">✕</label>
             <div class="flex flex-col md:flex-row gap-5">
                 <div class="border border-[#EB5757] rounded-lg bg-[#EB5757] bg-opacity-5 p-7 w-full">
-                    <h2 class="text-3xl font-bold">Congratulations random Internet user!</h2>
+                    <h2 id="modal-left-description" class="text-3xl font-bold"></h2>
                     <div class="flex gap-2 md:gap-4 my-4">
-                        <div class="font-bold text-green-600 p-3 md:p-4 bg-white rounded-md text-center">
+                        <div id="pricing-box-1" class="font-bold text-green-600 p-3 md:p-4 bg-white rounded-md text-center">
                             <h3>10 month basic</h3>
                         </div>
-                        <div class="font-bold text-orange-500 p-3 md:p-4 bg-white rounded-md text-center">
+                        <div id="pricing-box-2" class="font-bold text-orange-500 p-3 md:p-4 bg-white rounded-md text-center">
                             <h3>10 month basic</h3>
                         </div>
-                        <div class="font-bold text-red-600 p-3 md:p-4 bg-white rounded-md text-center">
+                        <div id="pricing-box-3" class="font-bold text-red-600 p-3 md:p-4 bg-white rounded-md text-center">
                             <h3>10 month basic</h3>
                         </div>
                     </div>
@@ -80,9 +82,13 @@
                 </div>
                 <div class="w-full text-center">
                     <div class="card-body border p-4">
-                        <figure><img
+                        <div class="relative">
+                            <img
                                 src="https://img.olhardigital.com.br/wp-content/uploads/2023/01/chatgpt_assistente.jpg" />
-                        </figure>
+                            <span
+                                class="p-1 rounded-md bg-[#EB5757] font-semibold text-white absolute top-2 right-2 text-xs">
+                                94% accuracy</span>
+                        </div>
                         <h2 class="card-title font-bold text-3xl">Features</h2>
                         <p>lasdfjals;dfjk;lsadkfj lsa;dfj;alsdkfj</p>
                     </div>

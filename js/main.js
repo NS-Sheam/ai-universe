@@ -25,18 +25,18 @@ const displayData = (allData, dataLimit) => {
                   <h2 class="font-bold text-xl">${data.name}</h2>
                   <div class="flex justify-between items-center">
                     <p>${data.published_in}</p>
-                    <i class="fa-solid fa-arrow-right text-[#EB5757] bg-[#f6d5d5] rounded-full p-4"></i>
+                    <label for="my-modal-5"><i onclick="loadModalData('${data.id}')" class="fa-solid fa-arrow-right text-[#EB5757] bg-[#f6d5d5] rounded-full p-4"></i></label>
                   </div>
             </div>
         `;
-        
-        console.log(data.features);
-        
+
+        // console.log(data.features);
+
         cardContainer.appendChild(cardDiv);
         toggleSpinner(false);
-        
+
     });
-    
+
 };
 loadData(6);
 // See more and less button 
@@ -54,7 +54,7 @@ const seeLessButtonClick = () => {
     seeMoreButton.style.display = 'block';
     seeLessButton.classList.add('hidden');
 };
-
+// Spinner function 
 const toggleSpinner = isLoading => {
     const loadingSpinner = document.getElementById('loading-spinner');
     if (isLoading === true) {
@@ -63,6 +63,23 @@ const toggleSpinner = isLoading => {
         loadingSpinner.classList.add('hidden');
     }
 }
+
+// Fetching single card details 
+const loadModalData = async (id) => {
+    const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayModalData(url);
+};
+const displayModalData = (allData) => {
+    console.log(allData);
+    const modalLeftDescription = document.getElementById('modal-left-description');
+    const pricingBox1 = document.getElementById('');
+    const pricingBox2 = document.getElementById('');
+    const pricingBox3 = document.getElementById('');
+};
+loadModalData()
+
 
 // {/* <li>1. ${data.features[0] ? data.features[0] : 'No more details'}</li>
 // <li>2. ${data.features[1] ? data.features[1] : 'No more details'}</li>
