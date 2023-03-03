@@ -14,7 +14,7 @@ const displayData = (allData, dataLimit) => {
     allData.forEach(data => {
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('card', 'w-96', 'bg-base-100', 'shadow-xl', 'mx-auto', 'mb-5', 'border-1');
-        console.log(data);
+        // console.log(data);
         // Showing data in card 
         cardDiv.innerHTML = `
             <div class="card-body">
@@ -69,14 +69,22 @@ const loadModalData = async (id) => {
     const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
     const res = await fetch(url);
     const data = await res.json();
-    displayModalData(url);
+    displayModalData(data.data);
 };
-const displayModalData = (allData) => {
-    console.log(allData);
+const displayModalData = (data) => {
+    console.log(data);
     const modalLeftDescription = document.getElementById('modal-left-description');
-    const pricingBox1 = document.getElementById('');
-    const pricingBox2 = document.getElementById('');
-    const pricingBox3 = document.getElementById('');
+    const pricingBox1 = document.getElementById('pricing-box-1');
+    const pricingBox2 = document.getElementById('pricing-box-2');
+    const pricingBox3 = document.getElementById('pricing-box-3');
+    const featureListContainer = document.getElementById('feature-list-container');
+    const integrationListContainer = document.getElementById('integration-list-container');
+    const modalClassImg = document.getElementById('modal-class-img');
+    console.log();
+    modalLeftDescription.innerText = data.description ? data.description : "No data found";
+    pricingBox1.innerText = data.pricing[0] && data.pricing[0].price !== '0' && data.pricing[0].price !== "No cost" ? data.pricing[0].price + "\n" + data.pricing[0].plan : "Free Of Cost/Basic";
+    pricingBox2.innerText = data.pricing[1] && data.pricing[1].price !== '0' && data.pricing[1].price !== "No cost" ? data.pricing[1].price + "\n" + data.pricing[1].plan : "Free Of Cost/Basic";
+    pricingBox3.innerText = data.pricing[2] && data.pricing[2].price !== '0' && data.pricing[2].price !== "No cost" ? data.pricing[2].price + "\n" + data.pricing[2].plan : "Free Of Cost/Basic";
 };
 loadModalData()
 
