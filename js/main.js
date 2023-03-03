@@ -35,6 +35,7 @@ const displayData = (allData, dataLimit) =>{
                 </div>
         `;
         cardContainer.appendChild(cardDiv);
+        toggleSpinner(false);
         // const featureListContainer = document.getElementById('feature-ol');
         // const featureList = document.createElement('li');
         //     featureList.innerText = data.features;
@@ -49,13 +50,24 @@ loadData(6);
 const seeMoreButton = document.getElementById('see-more-btn');
 const seeLessButton = document.getElementById('see-less-btn');
 const seeMoreButtonClick = () =>{
+    toggleSpinner(true);
     loadData();
     seeMoreButton.style.display = 'none';
     seeLessButton.classList.remove('hidden');
 };
 const seeLessButtonClick = () =>{
+    toggleSpinner(true);
     loadData(6);
     seeMoreButton.style.display = 'block';
     seeLessButton.classList.add('hidden');
 };
+
+// const toggleSpinner = isLoading =>{
+//     const loadingSpinner = document.getElementById('loading-spinner');
+//     if (isLoading === true) {
+//         loadingSpinner.classList.remove('hidden');
+//     } else {
+//         loadingSpinner.classList.add('hidden');
+//     }
+// }
 
