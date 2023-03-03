@@ -10,6 +10,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome add  -->
     <script src="https://kit.fontawesome.com/b1e2647aaa.js" crossorigin="anonymous"></script>
+    <!-- css Adding  -->
+    <link rel="stylesheet" href="style/style.css">
     <title>AI Universe</title>
 </head>
 
@@ -22,9 +24,16 @@
         <div class="grid grid-cols-1 md:grid-cols-3" id="card-container">
             
         </div>
-        <div class="text-center" id="see-more-btn">
+        <div class="text-center" id="see-more-btn" onclick="seeMoreButtonClick()">
             <button class="p-4 bg-[#EB5757] font-bold text-[#ffffff] rounded-xl">See more</button>
         </div>
+        <div class="text-center hidden" id="see-less-btn" onclick="seeLessButtonClick()">
+            <button class="p-4 bg-[#EB5757] font-bold text-[#ffffff] rounded-xl">See less</button>
+        </div>
+    </section>
+    <!-- Spinner Adding -->
+    <section class="flex justify-center">
+        <div class="loader ease-linear rounded-full border-4 border-t-4 border-primary-500 h-16 w-16"></div>
     </section>
 
     <!-- Javascript connecting with HTML  -->

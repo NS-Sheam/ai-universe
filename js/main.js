@@ -45,10 +45,17 @@ const displayData = (allData, dataLimit) =>{
     });
 };
 loadData(6);
-// See more button 
+// See more and less button 
 const seeMoreButton = document.getElementById('see-more-btn');
-seeMoreButton.addEventListener('click', function(){
+const seeLessButton = document.getElementById('see-less-btn');
+const seeMoreButtonClick = () =>{
     loadData();
     seeMoreButton.style.display = 'none';
-})
+    seeLessButton.classList.remove('hidden');
+};
+const seeLessButtonClick = () =>{
+    loadData(6);
+    seeMoreButton.style.display = 'block';
+    seeLessButton.classList.add('hidden');
+};
 
