@@ -4,12 +4,14 @@ function chileAppend(array, parent) {
     parent.innerHTML = '';
     array.forEach(data => {
         const cardDiv = document.createElement('div');
-        cardDiv.classList.add('card', 'w-96', 'bg-base-100', 'shadow-xl', 'mx-auto', 'mb-5', 'border-1');
+        cardDiv.classList.add('card', 'bg-base-100', 'shadow-xl', 'mx-auto', 'mb-5', 'border-1');
         // console.log(data);
         // Showing data in card 
         cardDiv.innerHTML = `
-            <div class="card-body">
-                <figure><img class="w-fit" src="${data.image}"/></figure>
+            <div class="card-body mx-auto flex flex-col">
+                <div>
+                    <img class="w-full" src="${data.image}"/>
+                </div>
                   <h2 class="card-title font-bold">Features</h2>
                   <ul id="feature-list-container">
                   <li>${data.features[0] ?'1. ' + data.features[0] : ''}</li>
