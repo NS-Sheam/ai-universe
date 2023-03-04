@@ -79,6 +79,10 @@ const displayModalData = (data) => {
     const featureListContainer = document.getElementById('feature-list-container');
     const integrationListContainer = document.getElementById('integration-list-container');
     const modalClassImg = document.getElementById('modal-class-img');
+    const accuracy = document.getElementById('accuracy');
+    const accuracyContainer = document.getElementById('accuracy-container');
+    const modalRightHeading = document.getElementById('right-side-heading');
+    const modalRightDescription = document.getElementById('modal-right-side-description');
     console.log(data);
     modalLeftDescription.innerText = data.description ? data.description : "No data found";
     // Pricing box with validation
@@ -92,12 +96,25 @@ const displayModalData = (data) => {
         featureList.innerText = data.features[key].feature_name ? data.features[key].feature_name : 'No details found';
         featureListContainer.appendChild(featureList);
     };
+    // Adding integration list 
     integrationListContainer.innerHTML = ' ';
     data.integrations ? data.integrations.forEach(element => {
         const integrationList = document.createElement('li');
         integrationList.innerText = element ? element : 'No data found';
         integrationListContainer.appendChild(integrationList);
     }) : integrationListContainer.innerHTML = `<li> No data found</li>`;
+    modalClassImg.setAttribute("src", data.image_link[0])
+    // Adding accuricy
+    if (data.accuracy && data.accuracy.score) {
+        accuracy.innerText = data.accuracy.score * 100;
+        accuracyContainer.style.display = 'block';
+    }
+    else{
+        accuracyContainer.style.display = 'none';
+    }
+    console.log();
+    modalRightHeading.innerText = data.input_output_examples && data.input_output_examples[0].input ? data.input_output_examples[0].input : 'Can you give any example?';
+    modalRightDescription.innerText = data.input_output_examples && data.input_output_examples[0].output ? data.input_output_examples[0].output : 'No! Not Yet! Take a break!!!';
 };
 loadModalData();
 

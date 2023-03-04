@@ -48,7 +48,7 @@
             <label for="my-modal-5"
                 class="btn btn-sm btn-circle bg-[#EB5757] absolute border-0 right-2 top-2 z-50">✕</label>
             <div class="flex flex-col md:flex-row gap-5">
-                <div class="border border-[#EB5757] rounded-lg bg-[#EB5757] bg-opacity-5 p-7 w-full">
+                <div class="border border-[#EB5757] rounded-lg bg-[#EB5757] bg-opacity-5 p-7 w-full flex-1">
                     <h2 id="modal-left-description" class="text-3xl font-bold"></h2>
                     <div class="flex gap-2 md:gap-4 my-4">
                         <div id="pricing-box-1" class="font-bold text-green-600 p-3 md:p-4 bg-white rounded-md text-center">
@@ -76,17 +76,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full text-center">
-                    <div class="card-body border p-4">
+                <div class="w-full text-center flex-1">
+                    <div class="card-body border p-4 h-full" id="modal-right">
                         <div class="relative">
-                            <img id="modal-class-img"
-                                src="https://img.olhardigital.com.br/wp-content/uploads/2023/01/chatgpt_assistente.jpg" />
+                            <img id="modal-class-img"/>
                             <span
-                                class="p-1 rounded-md bg-[#EB5757] font-semibold text-white absolute top-2 right-2 text-xs">
-                                94% accuracy</span>
+                                class="p-1 rounded-md bg-[#EB5757] font-semibold text-white absolute top-2 right-2 text-xs" id="accuracy-container">
+                                <span id="accuracy"></span>% accuracy</span>
                         </div>
-                        <h2 class="card-title font-bold text-3xl">Features</h2>
-                        <p>lasdfjals;dfjk;lsadkfj lsa;dfj;alsdkfj</p>
+                        <h2 class="card-title font-bold text-3xl text-center" id="right-side-heading"></h2>
+                        <p id="modal-right-side-description"></p>
                     </div>
                 </div>
             </div>
