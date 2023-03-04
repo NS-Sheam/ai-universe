@@ -11,33 +11,20 @@ const displayData = (allData, dataLimit) => {
     const cardContainer = document.getElementById('card-container');
     allData = allData.slice(0, dataLimit);
     cardContainer.innerHTML = '';
-    allData.forEach(data => {
-        const cardDiv = document.createElement('div');
-        cardDiv.classList.add('card', 'w-96', 'bg-base-100', 'shadow-xl', 'mx-auto', 'mb-5', 'border-1');
-        // console.log(data);
-        // Showing data in card 
-        cardDiv.innerHTML = `
-            <div class="card-body">
-                <figure><img class="w-full" src="${data.image}"/></figure>
-                  <h2 class="card-title font-bold">Features</h2>
-                  <ul id="feature-ol"></ul>
-                  <hr class="border-1 border-black">
-                  <h2 class="font-bold text-xl">${data.name}</h2>
-                  <div class="flex justify-between items-center">
-                    <p>${data.published_in}</p>
-                    <label for="my-modal-5"><i onclick="loadModalData('${data.id}')" class="fa-solid fa-arrow-right text-[#EB5757] bg-[#f6d5d5] rounded-full p-4"></i></label>
-                  </div>
-            </div>
-        `;
-
-        // console.log(data.features);
-
-        cardContainer.appendChild(cardDiv);
-        toggleSpinner(false);
-
-    });
-
+    // create and appendChild
+    chileAppend(allData, cardContainer);
+    
+    // Sort by date
+    document.getElementById('sort-by-btn').addEventListener('click', function(){
+        allData.sort((data1, data2) =>{
+            return new Date(data2.published_in) - new Date(data1.published_in);
+        });
+        chileAppend(allData, cardContainer);
+        
+    })
 };
+
+
 loadData(6);
 // See more and less button 
 const seeMoreButton = document.getElementById('see-more-btn');
@@ -83,7 +70,6 @@ const displayModalData = (data) => {
     const accuracyContainer = document.getElementById('accuracy-container');
     const modalRightHeading = document.getElementById('right-side-heading');
     const modalRightDescription = document.getElementById('modal-right-side-description');
-    console.log(data);
     modalLeftDescription.innerText = data.description ? data.description : "No data found";
     // Pricing box with validation
     pricingBox1.innerText = data.pricing && data.pricing[0] && data.pricing[0].price !== '0' && data.pricing[0].price !== "No cost" ? data.pricing[0].price + "\n" + data.pricing[0].plan : "Free Of Cost/Basic";
@@ -117,18 +103,3 @@ const displayModalData = (data) => {
     modalRightDescription.innerText = data.input_output_examples && data.input_output_examples[0].output ? data.input_output_examples[0].output : 'No! Not Yet! Take a break!!!';
 };
 loadModalData();
-
-
-// {/* <li>1. ${data.features[0] ? data.features[0] : 'No more details'}</li>
-// <li>2. ${data.features[1] ? data.features[1] : 'No more details'}</li>
-// <li>3. ${data.features[2] ? data.features[2] : 'No more details'}</li>
-// <li>4. ${data.features[3] ? data.features[3] : 'No more details'}</li> */}
-
-//   function addFeature (features) {
-//     const featureContainer = document.getElementById('feature-ol');
-//     features.forEach(data => {
-//         const featureList = document.createElement('li');
-//         featureList.innerText = data;
-//         console.log(data);
-//     });
-// }addFeature(data.features)
