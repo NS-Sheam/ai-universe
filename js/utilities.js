@@ -11,7 +11,13 @@ function chileAppend(array, parent) {
             <div class="card-body">
                 <figure><img class="w-fit" src="${data.image}"/></figure>
                   <h2 class="card-title font-bold">Features</h2>
-                  <ul id="feature-list-container"></ul>
+                  <ul id="feature-list-container">
+                  <li>${data.features[0] ?'1. ' + data.features[0] : ''}</li>
+                  <li>${data.features[1] ?'2. ' + data.features[1] : ''}</li>
+                  <li>${data.features[2] ?'3. ' + data.features[2] : ''}</li>
+                  <li>${data.features[3] ?'4. ' + data.features[3] : ''}</li>
+                  <li>${data.features[4] ?'5. ' + data.features[4] : ''}</li>
+                  </ul>
                   <hr class="border-1 border-black">
                   <h2 class="font-bold text-xl">${data.name}</h2>
                   <div class="flex justify-between items-center">
@@ -20,14 +26,7 @@ function chileAppend(array, parent) {
                   </div>
             </div>
         `;
-        // console.log(data.features);
         parent.appendChild(cardDiv);
-        const featureList = document.getElementById('feature-list-container');
-        data.features.forEach(element => {
-            console.log(element);
-        });
-        console.log(data.features);
-
         
         toggleSpinner(false);
     });

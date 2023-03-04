@@ -78,7 +78,6 @@ const displayModalData = (data) => {
     for (const key in data.features) {
         const featureList = document.createElement('li');
         featureList.innerText = data.features[key].feature_name ? data.features[key].feature_name : 'No details found';
-        console.log(data.features[key].feature_name);
         featureListContainer.appendChild(featureList);
     };
     // Adding integration list 
