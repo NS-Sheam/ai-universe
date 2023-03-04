@@ -16,12 +16,12 @@
 </head>
 
 <body class="my-5">
-    <header class="container text-center mb-5">
+    <header class="container mx-auto text-center mb-5">
         <h1 class="text-3xl font-bold mb-4">AI Universre Hub</h1>
         <button id="sort-by-btn" class="p-4 bg-[#EB5757] font-bold text-[#ffffff] rounded-xl">Sort By Date</button>
     </header>
-    <section class="">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center" id="card-container">
+    <section class="container mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 md:gap-4 justify-center" id="card-container">
 
         </div>
         <!-- Spinner Adding -->
@@ -49,8 +49,8 @@
                 class="btn btn-sm btn-circle bg-[#EB5757] absolute border-0 right-2 top-2 z-50">✕</label>
             <div class="flex flex-col md:flex-row gap-5">
                 <div class="border border-[#EB5757] rounded-lg bg-[#EB5757] bg-opacity-5 p-7 w-full flex-1">
-                    <h2 id="modal-left-description" class="text-3xl font-bold"></h2>
-                    <div class="flex gap-2 md:gap-4 my-4">
+                    <h2 id="modal-left-description" class="text-xl md:text-3xl font-bold"></h2>
+                    <div class="flex gap-2 md:gap-4 my-4 flex-wrap md:flex-nowrap justify-center items-center">
                         <div id="pricing-box-1" class="font-bold text-green-600 p-3 md:p-4 bg-white rounded-md text-center">
                             <h3></h3>
                         </div>
@@ -61,10 +61,10 @@
                             <h3></h3>
                         </div>
                     </div>
-                    <div class="flex justify-between">
+                    <div class="flex flex-col md:flex-row justify-between">
                         <div>
                             <h3 class="text-3xl font-bold mb-4">Features</h3>
-                            <ul id="feature-list-container" class="relative list-disc left-8">
+                            <ul id="modal-feature-list-container" class="relative list-disc left-8">
                                 
                             </ul>
                         </div>
@@ -99,8 +99,8 @@
 
 
     <!-- Javascript connecting with HTML  -->
-    <script src="js/main.js"></script>
     <script src="js/utilities.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

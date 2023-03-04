@@ -1,10 +1,3 @@
-function listAdd(array, parent) {
-    array.forEach(listElement => {
-        const list = document.createElement('li');
-        list.innerText = listElement;
-        parent.appendChild(list);
-    });
-}
 // appending Chile Function 
 // appending Chile Function 
 function chileAppend(array, parent) {
@@ -16,7 +9,7 @@ function chileAppend(array, parent) {
         // Showing data in card 
         cardDiv.innerHTML = `
             <div class="card-body">
-                <figure><img class="w-full" src="${data.image}"/></figure>
+                <figure><img class="w-fit" src="${data.image}"/></figure>
                   <h2 class="card-title font-bold">Features</h2>
                   <ul id="feature-list-container"></ul>
                   <hr class="border-1 border-black">
@@ -27,10 +20,15 @@ function chileAppend(array, parent) {
                   </div>
             </div>
         `;
-        const featureListContainer = document.getElementById('feature-list-container');
-        console.log(data.features);
+        // console.log(data.features);
         parent.appendChild(cardDiv);
+        const featureList = document.getElementById('feature-list-container');
+        data.features.forEach(element => {
+            console.log(element);
+        });
+        console.log(data.features);
+
+        
         toggleSpinner(false);
     });
-    listAdd(data.features, featureListContainer)
 };
